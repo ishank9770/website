@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate Evaluation Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .dashboard-container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #0d47a1, #1976d2);
+      color: white;
+      padding: 20px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .refresh-container {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .refresh-button {
+      background-color: #e3f2fd;
+      border: 1px solid #64b5f6;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f5f5f5;
+      font-size: 14px;
+    }
+
+    .error-message {
+      color: red;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    input[type=number] {
+      width: 70px;
+    }
+
+    .update-btn {
+      padding: 5px 10px;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="header">
+      <h1>Candidate Evaluation Dashboard</h1>
+      <p>Review and score candidate responses</p>
+    </div>
+
+    <div class="card">
+      <div class="refresh-container">
+        <button class="refresh-button" onclick="fetchCandidateData()">🔄 Refresh Data</button>
+      </div>
+
+      <p id="status">0 candidates loaded</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Candidate Name</th>
+            <th>Email Apology</th>
+            <th>Email Complaint Response</th>
+            <th>Apology Score</th>
+            <th>Complaint Score</th>
+            <th>Total Score</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="candidateTable"></tbody>
+      </table>
+
+      <div id="error" class="error-message" style="display:none;">
+        <p>❗ Failed to load data. Please check your connection and try again.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function fetchCandidateData() {
+      const tableBody = document.getElementById('candidateTable');
+      const errorDiv = document.getElementById('error');
+      const statusText = document.getElementById('status');
+      try {
+        const response = await fetch('http://localhost:5000/api/GetDataAPI');
+        if (!response.ok) throw new Error('Failed to fetch');
+
+        const data = await response.json();
+        tableBody.innerHTML = '';
+        errorDiv.style.display = 'none';
+        statusText.innerText = `${data.length} candidates loaded`;
+
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+
+          const apologyScore = row.email_apology_score || 0;
+          const complaintScore = row.email_complaint_response_score || 0;
+
+          tr.innerHTML = `
+            <td>${row.Candidate_Name || '-'}</td>
+            <td>${row.email_apology || '-'}</td>
+            <td>${row.email_complaint_response || '-'}</td>
+            <td><input type="number" value="${apologyScore}" min="0" max="10"></td>
+            <td><input type="number" value="${complaintScore}" min="0" max="10"></td>
+            <td>${row.Total_score !== undefined ? row.Total_score : '-'}</td>
+            <td><button class="update-btn">Update</button></td>
+          `;
+
+          tr.querySelector('.update-btn').addEventListener('click', async () => {
+            const inputs = tr.querySelectorAll('input[type=number]');
+            const payload = {
+              Candidate_Name: row.Candidate_Name,
+              Email_apology_score: Number(inputs[0].value),
+              Email_complaint_response_score: Number(inputs[1].value)
+            };
+
+            try {
+              const updateRes = await fetch('http://localhost:5000/api/GetDataAPI', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+
+              const result = await updateRes.json();
+              if (updateRes.ok) {
+                alert(`Updated scores for ${row.Candidate_Name}`);
+              } else {
+                alert('Update failed: ' + (result.error || 'Unknown error'));
+              }
+            } catch (err) {
+              alert('Error updating data: ' + err.message);
+            }
+          });
+
+          tableBody.appendChild(tr);
+        });
+      } catch (err) {
+        console.error(err);
+        tableBody.innerHTML = '';
+        statusText.innerText = '0 candidates loaded';
+        errorDiv.style.display = 'block';
+      }
+    }
+
+    window.onload = fetchCandidateData;
+  </script>
+</body>
+</html>

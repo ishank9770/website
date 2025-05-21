@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        h1, h2 {
+            font-weight: 600;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        input[type="text"], .text-area {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>English Test</h1>
+
+    <form method="POST" action="/submit">
+        <div class="section">
+            <label for="candidate_name"><strong>Candidate Name:</strong></label>
+            <input type="text" id="candidate_name" name="candidate_name" required />
+        </div>
+
+        <div class="section">
+            <h2>Section I: Multiple Choice Questions</h2>
+            <div class="question">
+                <p>1. George is .......... than Nick.</p>
+                <input type="radio" name="q1" value="a" required> tall<br />
+                <input type="radio" name="q1" value="b"> taller<br />
+                <input type="radio" name="q1" value="c"> tallest<br />
+            </div>
+            <div class="question">
+                <p>2. What time ..... Calais tomorrow afternoon?</p>
+                <input type="radio" name="q2" value="a" required> do the ferry reach<br />
+                <input type="radio" name="q2" value="b"> is the ferry reaching<br />
+                <input type="radio" name="q2" value="c"> does the ferry reach<br />
+            </div>
+            <div class="question">
+                <p>3. My friend ..................... lives in Australia is a nurse.</p>
+                <input type="radio" name="q3" value="a" required> who<br />
+                <input type="radio" name="q3" value="b"> which<br />
+                <input type="radio" name="q3" value="c"> whose<br />
+            </div>
+            <div class="question">
+                <p>4. I like walking in the park ............. hot days.</p>
+                <input type="radio" name="q4" value="a" required> at<br />
+                <input type="radio" name="q4" value="b"> on<br />
+                <input type="radio" name="q4" value="c"> in<br />
+            </div>
+            <div class="question">
+                <p>5. Centuries ago, people .......... animals for food.</p>
+                <input type="radio" name="q5" value="a" required> transported<br />
+                <input type="radio" name="q5" value="b"> played<br />
+                <input type="radio" name="q5" value="c"> hunted<br />
+            </div>
+            <div class="question">
+                <p>6. If he ................... the lottery, he'll go on a round-the-world trip.</p>
+                <input type="radio" name="q6" value="a" required> won<br />
+                <input type="radio" name="q6" value="b"> wins<br />
+                <input type="radio" name="q6" value="c"> will win<br />
+            </div>
+            <div class="question">
+                <p>7. John has to get ... early in the morning.</p>
+                <input type="radio" name="q7" value="a" required> on<br />
+                <input type="radio" name="q7" value="b"> up<br />
+                <input type="radio" name="q7" value="c"> down<br />
+            </div>
+            <div class="question">
+                <p>8. The door was locked so I ..... go inside.</p>
+                <input type="radio" name="q8" value="a" required> will be able to<br />
+                <input type="radio" name="q8" value="b"> wasn't able to<br />
+                <input type="radio" name="q8" value="c"> can<br />
+            </div>
+            <div class="question">
+                <p>9. She often ......................... to music when she does the housework.</p>
+                <input type="radio" name="q9" value="a" required> listens<br />
+                <input type="radio" name="q9" value="b"> listening<br />
+                <input type="radio" name="q9" value="c"> to listen<br />
+            </div>
+            <div class="question">
+                <p>10. We ..... at the sports centre every Wednesday afternoon.</p>
+                <input type="radio" name="q10" value="a" required> are usually meeting<br />
+                <input type="radio" name="q10" value="b"> usually meet<br />
+                <input type="radio" name="q10" value="c"> have usually met<br />
+            </div>
+
+				<div class="question">
+			<p>11. That's the man ..... son is a famous actor.</p>
+			<input type="radio" name="q11" value="a" required> who<br />
+			<input type="radio" name="q11" value="b"> where<br />
+			<input type="radio" name="q11" value="c"> whose<br />
+		</div>
+
+		<div class="question">
+			<p>12. ......... is a dairy product.</p>
+			<input type="radio" name="q12" value="a" required> Cheese<br />
+			<input type="radio" name="q12" value="b"> Meat<br />
+			<input type="radio" name="q12" value="c"> Rice<br />
+		</div>
+
+		<div class="question">
+			<p>13. Greg .... down, opened the book and began to read.</p>
+			<input type="radio" name="q13" value="a" required> was sitting<br />
+			<input type="radio" name="q13" value="b"> sat<br />
+			<input type="radio" name="q13" value="c"> has been sitting<br />
+		</div>
+
+		<div class="question">
+			<p>14. Levi Strauss was the man ................. invented blue jeans.</p>
+			<input type="radio" name="q14" value="a" required> who<br />
+			<input type="radio" name="q14" value="b"> whose<br />
+			<input type="radio" name="q14" value="c"> which<br />
+		</div>
+
+		<div class="question">
+			<p>15. You have been to Spain, ...............?</p>
+			<input type="radio" name="q15" value="a" required> have you<br />
+			<input type="radio" name="q15" value="b"> you have<br />
+			<input type="radio" name="q15" value="c"> haven't you<br />
+		</div>
+
+		<div class="question">
+			<p>16. If you study hard, you ....... your exams this time.</p>
+			<input type="radio" name="q16" value="a" required> passes<br />
+			<input type="radio" name="q16" value="b"> pass<br />
+			<input type="radio" name="q16" value="c"> will pass<br />
+		</div>
+
+		<div class="question">
+			<p>17. This is the park ...... I take my dog every afternoon.</p>
+			<input type="radio" name="q17" value="a" required> what<br />
+			<input type="radio" name="q17" value="b"> where<br />
+			<input type="radio" name="q17" value="c"> which<br />
+		</div>
+
+		<div class="question">
+			<p>18. .................. do you like playing during long winter evenings?</p>
+			<input type="radio" name="q18" value="a" required> What<br />
+			<input type="radio" name="q18" value="b"> Which<br />
+			<input type="radio" name="q18" value="c"> Why<br />
+		</div>
+
+		<div class="question">
+			<p>19. Use this bowl. It's ..................... than the other one.</p>
+			<input type="radio" name="q19" value="a" required> big<br />
+			<input type="radio" name="q19" value="b"> bigger<br />
+			<input type="radio" name="q19" value="c"> biggest<br />
+		</div>
+
+		<div class="question">
+			<p>20. They ........... to Disneyland last week.</p>
+			<input type="radio" name="q20" value="a" required> went<br />
+			<input type="radio" name="q20" value="b"> had gone<br />
+			<input type="radio" name="q20" value="c"> will go<br />
+		</div>
+
+	</div>
+
+<div class="section reading-comprehension">
+    <h2>SECTION II: Reading Comprehension <small>(10 marks)</small></h2>
+
+    <p><strong>Reading Task 1</strong></p>
+    <p>Read and answer the questions below.</p>
+
+    <p><strong>WELCOME TO CYBERSPACE!</strong></p>
+    <p>
+        Travel around the magnificent world of the Internet with COMEWITHUS.COM.<br><br>
+
+        The Internet: a world of information, entertainment and communication. Are you on-line? If not, think about what you’re missing. You could get the latest news it even appears TV: you could take part in discussions about things that interest you with people from around the world; you could make new friends who share your ideas and hobbies; you could send messages to your friends abroad – they will reach them immediately, and at a minimum cost; you could go shopping for anything, anywhere in the world, and pay much less than you would in a shop.<br><br>
+
+        All you need to do is call us FREE on 0800-600-600, and we will take care of everything!<br><br>
+
+        Everything you need will come to your house in 24 hours, and you will be ready to start surfing the net! And, with COMEWITHUS.COM, going on the Internet will cost you very little. For £25 a month, you can have your own Internet connection, and your own e-mail address. So call us now, on 0800-600-600, and start exploring the wonderful world of the Internet!
+    </p>
+
+    <!-- Question 1 -->
+    <div class="question">
+        <p>1. “COMEWITHUS.COM” sell</p>
+        <input type="radio" name="reading_q1" value="a" required> a) TVs<br>
+        <input type="radio" name="reading_q1" value="b"> b) telephones<br>
+        <input type="radio" name="reading_q1" value="c"> c) Internet connections<br>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+        <p>2. According to the advertisement, with “COMEWITHUS.COM” you can</p>
+        <input type="radio" name="reading_q2" value="a" required> a) make new friends<br>
+        <input type="radio" name="reading_q2" value="b"> b) travel abroad<br>
+        <input type="radio" name="reading_q2" value="c"> c) appear on TV<br>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+        <p>3. If you want to connect to the Internet with “COMEWITHUS.COM” you have to</p>
+        <input type="radio" name="reading_q3" value="a" required> a) send them a message<br>
+        <input type="radio" name="reading_q3" value="b"> b) call them<br>
+        <input type="radio" name="reading_q3" value="c"> c) take part in a discussion<br>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+        <p>4. Calling “COMEWITHUS.COM” on the phone will cost you</p>
+        <input type="radio" name="reading_q4" value="a" required> a) a fortune<br>
+        <input type="radio" name="reading_q4" value="b"> b) very little<br>
+        <input type="radio" name="reading_q4" value="c"> c) nothing<br>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+        <p>5. What do “COMEWITHUS.COM” give you for £25 per month?</p>
+        <input type="radio" name="reading_q5" value="a" required> a) a computer<br>
+        <input type="radio" name="reading_q5" value="b"> b) an Internet connection<br>
+        <input type="radio" name="reading_q5" value="c"> c) a free telephone<br>
+    </div>
+</div>
+
+<div class="section reading-comprehension">
+    <h2>SECTION II: Reading Comprehension <small>(10 marks)</small></h2>
+
+    <p><strong>Reading Task 2</strong></p>
+    <p>Read the article and mark the sentences below: "True" or "False".</p>
+
+    <p><strong>Hello, People of Thailand!</strong></p>
+    <p>
+        Whatever country we come from, whatever colour our skin is, we all have one thing in common: we are all people of the world.<br><br>
+
+        Thailand is a beautiful country with a rich culture, just south of China. People call it the jewel of south-east Asia for a good reason. Its tropical climate, white sandy beaches and ancient temples make it a perfect holiday destination. What makes it really special, though, is its people.<br><br>
+
+        Thai people are good-looking. They are short with delicate features. They have got black hair, dark eyes and light brown skin. The Thais are friendly people who are well known for being generous and kind. „We are happy people who have strong wills and are especially proud of our history,“ says Kasem from Bangkok.<br><br>
+
+        Most people in Thailand live in villages. A typical Thai village consists of wooden houses, a school and a Buddhist temple. Most of the people in the villages are farmers and fishermen. The men usually work in the fields or catch fish in the rivers, and the women plant the crops.<br><br>
+
+        Family life is very important in Thailand, and families often eat together. Thai food is very spicy and includes curries, fish, seafood, soups and noodles. „We eat rice with our meals and use a lot of strong spices in our cooking,“ explains Kasem.<br><br>
+
+        Thai people love to enjoy themselves. Popular free-time activities include Thai boxing and watching traditional dance shows. Thais also celebrate many festivals throughout the year. „My favourite holiday is Surin, in November, when we always have elephant football matches,“ says Kasem.<br><br>
+
+        Thailand is a wonderful country. Its fascinating sights, rich cultural history and warm-hearted people make it unique.
+    </p>
+
+    <!-- Question 1 -->
+    <div class="question">
+        <p>1. Many people go fishing and work in fields.</p>
+        <input type="radio" name="reading2_q1" value="true" required> True<br>
+        <input type="radio" name="reading2_q1" value="false"> False<br>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+        <p>2. Thai people eat lots of rice and spices.</p>
+        <input type="radio" name="reading2_q2" value="true" required> True<br>
+        <input type="radio" name="reading2_q2" value="false"> False<br>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+        <p>3. Thai people like eating alone.</p>
+        <input type="radio" name="reading2_q3" value="true" required> True<br>
+        <input type="radio" name="reading2_q3" value="false"> False<br>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+        <p>4. People of Thailand are very kind.</p>
+        <input type="radio" name="reading2_q4" value="true" required> True<br>
+        <input type="radio" name="reading2_q4" value="false"> False<br>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+        <p>5. There are elephant football matches during Surin.</p>
+        <input type="radio" name="reading2_q5" value="true" required> True<br>
+        <input type="radio" name="reading2_q5" value="false"> False<br>
+    </div>
+</div>
+
+<div class="section">
+    <h2>SECTION III: Email Drafting <small>(10 Marks)</small></h2>
+    <p>Write an email to your supervisor apologizing for missing a project deadline, explaining the cause and suggesting a new timeline.</p>
+    <textarea name="email_apology" rows="8" placeholder="Write your email here..." required></textarea>
+</div>
+
+<div class="section">
+    <h2>SECTION IV: Email Drafting <small>(10 Marks)</small></h2>
+    <p>
+        You are a customer service representative for a local coffee shop. A customer has sent you an email expressing dissatisfaction with their recent experience, specifically mentioning that their order was incorrect and the service was slow.
+    </p>
+    <p><strong>Task:</strong></p>
+    <ul>
+        <li>Acknowledge their concerns.</li>
+        <li>Apologize for the inconvenience.</li>
+        <li>Offer a solution or compensation (e.g., a discount or free drink on their next visit).</li>
+    </ul>
+    <textarea name="email_complaint_response" rows="8" placeholder="Draft your response email here..." required></textarea>
+</div>
+
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
